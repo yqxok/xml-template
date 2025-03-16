@@ -1,0 +1,37 @@
+{
+  "meta_data":{
+    "school":{
+      "class": [
+        {"name": "终极一班",
+          "type": "理科班" ,
+          "grade": "B",
+          "students": [
+            {"name": "李华","scored": 555},
+            {"name": "袁华","scored": 576}
+          ]
+        },{
+          "name": "文雅班",
+          "type": "文科班",
+          "grade": "A",
+          "students": [
+            {"name": "小美","scored": 601},
+            {"name": "雨琪","scored": 611}
+          ]
+        },{
+          "name": "清北班",
+          "type": "理科班",
+          "grade": "A",
+          "students": [
+            {"name": "张三","scored": 666},
+            {"name": "李四","scored": 654}
+          ]
+        }
+      ],
+      "name": "**市第一中学",
+      "averageScore": 589,
+      "address": "茂名市茂南区",
+      "grade": 1
+    }
+  },
+  "message":"学校数据"
+}

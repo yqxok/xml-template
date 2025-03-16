@@ -1,0 +1,20 @@
+<data>
+    <high_chool >
+        <class y-for="res in meta_data.school.class">
+            <field  name="班名" value="{{res.name$[喜哦]}}"></field>
+            <field  name="排名" value="{{res.grade}}"></field>
+            <field  name="等级" value="{{res.type}}"></field>
+            <student y-for="stu in res.students">
+                {{stu.name1$[尼玛]}}
+                <name value="{{stu.name}}"></name>
+                <scored value="{{stu.scored}}"></scored>
+            </student>
+        </class>
+    </high_chool>
+    <msg>
+        <schoolName  name="学校名称" value="{{meta_data.school.name}}">
+            {{meta_data.school.name}}
+        </schoolName>
+        <field  name="学校高考平均分" value="{{meta_data.school.dd$[111]}}"></field>
+    </msg>
+</data>
