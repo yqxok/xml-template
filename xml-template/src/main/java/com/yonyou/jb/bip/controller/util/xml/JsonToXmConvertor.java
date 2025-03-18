@@ -1,9 +1,13 @@
-package pri.yqx.xml;
+package com.yonyou.jb.bip.controller.util.xml;
 
+import com.yonyou.jb.bip.controller.util.json.AbstractJsonNode;
+import com.yonyou.jb.bip.controller.util.json.JsonListNode;
+import com.yonyou.jb.bip.controller.util.json.JsonNode;
 import jdk.internal.org.xml.sax.InputSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
-import pri.yqx.json.JsonMapNode;
-import pri.yqx.json.JsonNode;
+import com.yonyou.jb.bip.controller.util.json.JsonMapNode;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -12,11 +16,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JsonToXmConvertor {
+    private static final Logger log= LoggerFactory.getLogger(JsonToXmConvertor.class);
+
     private final JsonNode jsonNode;
     private final List<XmlProceesor> xmlProceesors=new ArrayList<>();
-    public JsonToXmConvertor(String json,String xml){
-        jsonNode= JsonMapNode.newInstance(json);
+    public<T extends AbstractJsonNode> JsonToXmConvertor(String json, String xml, Class<T> jsonType){
+        if(jsonType.equals(JsonMapNode.class)){
+            jsonNode= JsonMapNode.newInstance(json);
+        } else {
+            jsonNode=JsonListNode.newInstance(json);
+        }
         init();
+
+
     }
 
 
@@ -28,7 +40,10 @@ public class JsonToXmConvertor {
         //添加:for处理器器
         xmlProceesors.add(new ForAttrProcessor(jsonNode));
         //添加插值处理器
-        xmlProceesors.add(new ValueInsertProcessor(new JsonInserValueResolver(jsonNode)));
+        CalculateValueResolver calculateValueResolver = new CalculateValueResolver(jsonNode);
+        DefaultValueResolver defaultValueResolver = new DefaultValueResolver(jsonNode);
+        ValueResolverComposite composite = new ValueResolverComposite(calculateValueResolver, defaultValueResolver);
+        xmlProceesors.add(new ValueInsertProcessor(composite));
         //添加特殊属性清除处理器
         xmlProceesors.add(new ClearProcessor());
     }

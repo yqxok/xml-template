@@ -2,8 +2,8 @@ package pri.sample;
 
 import org.junit.Test;
 import org.w3c.dom.Document;
-import pri.yqx.json.JsonMapNode;
-import pri.yqx.xml.JsonToXmConvertor;
+import com.yonyou.jb.bip.controller.util.json.JsonMapNode;
+import com.yonyou.jb.bip.controller.util.xml.JsonToXmConvertor;
 
 public class XmlCreate {
     @Test

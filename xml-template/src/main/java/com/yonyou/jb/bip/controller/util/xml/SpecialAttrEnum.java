@@ -1,4 +1,4 @@
-package pri.yqx.xml;
+package com.yonyou.jb.bip.controller.util.xml;
 
 public class SpecialAttrEnum {
     public static final String SPECIAL_SIGN="y-";

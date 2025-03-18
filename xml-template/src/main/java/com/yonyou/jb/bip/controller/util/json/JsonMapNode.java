@@ -1,4 +1,4 @@
-package pri.yqx.json;
+package com.yonyou.jb.bip.controller.util.json;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

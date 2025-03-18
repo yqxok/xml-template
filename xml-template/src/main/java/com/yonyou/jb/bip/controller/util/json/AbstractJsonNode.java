@@ -1,4 +1,4 @@
-package pri.yqx.json;
+package com.yonyou.jb.bip.controller.util.json;
 
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;

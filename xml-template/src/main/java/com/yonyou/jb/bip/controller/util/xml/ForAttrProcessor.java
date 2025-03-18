@@ -1,8 +1,8 @@
-package pri.yqx.xml;
+package com.yonyou.jb.bip.controller.util.xml;
 
+import com.yonyou.jb.bip.controller.util.json.JsonListNode;
+import com.yonyou.jb.bip.controller.util.json.JsonNode;
 import org.w3c.dom.*;
-import pri.yqx.json.JsonListNode;
-import pri.yqx.json.JsonNode;
 
 import java.util.Arrays;
 

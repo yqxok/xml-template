@@ -1,21 +1,21 @@
-package pri.yqx.xml;
+package com.yonyou.jb.bip.controller.util.xml;
 
+import com.yonyou.jb.bip.controller.util.json.JsonNode;
 import org.w3c.dom.Node;
-import pri.yqx.json.JsonNode;
 
 /**
  * {{person.name${小明}}},person.name将从json数据中寻找,若找到则将替代插值,若没有则使用${}内的值替代
  */
-public class JsonInserValueResolver implements InsertValueIResolver{
+public class DefaultValueResolver implements InsertValueIResolver{
 
     private final JsonNode jsonNode;
 
-    public JsonInserValueResolver(JsonNode jsonNode){
+    public DefaultValueResolver(JsonNode jsonNode){
         this.jsonNode=jsonNode;
     }
     @Override
     public boolean resolveValue(Node node) {
-        String nodeValue=node.getNodeValue();
+        String nodeValue=node.getNodeValue().trim();
         //解析字符串
         String targetStr=nodeValue,defaultStr="";
         if(nodeValue.length()>3&&nodeValue.charAt(nodeValue.length()-1)==']'){

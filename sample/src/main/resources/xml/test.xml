@@ -15,6 +15,6 @@
         <schoolName  name="学校名称" value="{{meta_data.school.name}}">
             {{meta_data.school.name}}
         </schoolName>
-        <field  name="学校高考平均分" value="{{meta_data.school.dd$[111]}}"></field>
+        <field  name="学校高考平均分" value="{{meta_data.school.maxScore - meta_data.school.averageScore}}"></field>
     </msg>
 </data>

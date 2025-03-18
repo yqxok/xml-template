@@ -1,4 +1,4 @@
-package pri.yqx.xml;
+package com.yonyou.jb.bip.controller.util.xml;
 
 import org.w3c.dom.Node;
 
